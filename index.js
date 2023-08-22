@@ -1,10 +1,11 @@
 const express = require("express");
 // const { connection } = require("../Backend/db");
-const { UserRouter } = require("../Backend/routes/user.routes");
-const { doctorRouter } = require("../Backend/routes/doctor.routes")
+const { UserRouter } = require("./routes/user.routes");
+const { doctorRouter } = require("./routes/doctor.routes")
 require("dotenv").config();
 const cors = require("cors");
-const { connection } = require("../Backend/db");
+const { connection } = require("./db");
+
 
 const app = express();
 app.use(express.json());
@@ -20,7 +21,7 @@ app.use("/doctor",doctorRouter)
 
 app.listen(process.env.port, async () => {
   try {
-    await connection;
+    await connection
     console.log("Db is connected");
   } catch (error) {
     console.log(error);
