@@ -1,9 +1,10 @@
 const express = require("express");
-const { connection } = require("../Backend/db");
+// const { connection } = require("../Backend/db");
 const { UserRouter } = require("../Backend/routes/user.routes");
 const { doctorRouter } = require("../Backend/routes/doctor.routes")
 require("dotenv").config();
 const cors = require("cors");
+const { connection } = require("../Backend/db");
 
 const app = express();
 app.use(express.json());
